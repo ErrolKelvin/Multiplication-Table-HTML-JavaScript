@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table - JS & HTML</title>
+</head>
+<body>
+  <h1>Multiplication Table</h1>
+  <form>
+    <input type="button" value="Create Table" onclick="create()">
+  </form>
+  <hr>
+  <p><span id="display"></span></p>
+
+  <script>
+    function create(){
+
+      column = parseInt(window.prompt("Set multiplier limit",""));
+      while (isNaN(column)){
+        column = parseInt(window.prompt("Enter valid multiplier limit?",""));
+      }
+      
+      table = "<table border='1'>";
+      for (i=0;i<=10;i++){
+        table += "<tr>";
+        for (j=0;j<=column;j++){
+          if (i==0 && j==0){
+            table+= "<td><b>"+"*"+" </b></td>";
+            continue;
+          }
+          if (i==0 && j>0){
+            table+= "<td><b> "+j+" </b></td>";
+            continue;
+          }
+          if (i>0 && j==0){
+            table+= "<td><b>"+i+"</b></td>";
+            continue;
+          }
+          table+= "<td> "+i*j+" </td>";
+        }
+        table+= "</tr>";
+      }
+
+      table += "</table>";
+      document.getElementById("display").innerHTML=table;
+      
+    }
+  </script>
+
+</body>
+</html>
